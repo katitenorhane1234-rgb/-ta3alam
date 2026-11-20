@@ -1,96 +1,90 @@
-:root{
-  --night:#14213d;--night2:#1f3158;--gold:#c9a227;--gold2:#e8c75a;--teal:#0f766e;--teal2:#0b5a54;
-  --paper:#f4ecd8;--card:#fffaf0;--ink:#1d2433;--ok:#15803d;--warm:#e07a2f;
-  --star:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 4l6 14 14-6-6 14 14 6-14 6 6 14-14-6-6 14-6-14-14 6 6-14-14-6 14-6-6-14 14 6z' fill='none' stroke='%23c9a227' stroke-opacity='.2' stroke-width='1.2'/%3E%3C/svg%3E")
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper) var(--star);color:var(--ink);font-family:'Cairo','Segoe UI',Tahoma,sans-serif;font-size:20px;line-height:1.7}
-h1,h2,h3{font-family:'Reem Kufi','Cairo',sans-serif;color:var(--night);margin:.4em 0}
-h2{display:flex;align-items:center;gap:10px}h2::before{content:"✦";color:var(--gold)}
+:root{--bg:#fff8ee;--ink:#1f2a37;--g:#0e7c66;--g2:#0a5c4b;--sun:#f4a62a;--sun2:#c47f0c;--coral:#ef6f5e;--card:#fff;--line:#eadfc8}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 20px/1.7 'Cairo','Segoe UI',Tahoma,sans-serif}
+h1,h2,h3{font-family:'Reem Kufi','Cairo',sans-serif;margin:.3em 0}
+header{display:flex;align-items:center;justify-content:space-between;padding:12px 18px 18px;background:linear-gradient(135deg,var(--g),#16a085);color:#fff;border-radius:0 0 28px 28px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:48px;height:48px;border-radius:16px;background:var(--sun);color:var(--ink);display:grid;place-items:center;font:700 2rem 'Amiri',serif;font-style:normal;transform:rotate(-6deg)}
+.brand b{font:700 1.7rem 'Reem Kufi';display:block;line-height:1}.brand small{opacity:.8;direction:ltr;display:block}
+.pbtn{background:#ffffff2e;color:#fff;border:0;border-radius:999px;padding:8px 16px;font:600 1rem 'Cairo';cursor:pointer}
+main{max-width:900px;margin:0 auto;padding:16px 14px 110px}
 
-/* الشريط العلوي */
-header{position:sticky;top:0;z-index:5;background:linear-gradient(180deg,var(--night),var(--night2));color:#fff;border-bottom:4px solid var(--gold);box-shadow:0 4px 14px #0004}
-.brand{display:flex;align-items:center;gap:12px;padding:10px 16px 4px}
-.logo{width:50px;height:50px;display:grid;place-items:center;font:700 2rem 'Amiri',serif;font-style:normal;color:var(--night);background:linear-gradient(135deg,var(--gold2),var(--gold));clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%)}
-.brand b{font:700 1.6rem 'Reem Kufi',sans-serif;color:var(--gold2);display:block;line-height:1.1}
-.brand small{font-size:.8rem;opacity:.8}
-nav{display:flex;gap:6px;overflow-x:auto;padding:6px 12px 10px;scrollbar-width:none}
-nav::-webkit-scrollbar{display:none}
-nav button{flex:none;background:transparent;color:#e5e7eb;border:2px solid #ffffff2e;border-radius:999px;padding:6px 16px;font:600 1rem 'Cairo',sans-serif;cursor:pointer}
-nav button.on{background:var(--gold);border-color:var(--gold);color:var(--night)}
+/* التنقل السفلي */
+.bn{position:fixed;bottom:0;left:0;right:0;z-index:6;display:flex;justify-content:center;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 16px #0001;padding-bottom:env(safe-area-inset-bottom)}
+.bn button{flex:1;max-width:130px;background:none;border:0;padding:8px 2px 6px;font:600 .78rem 'Cairo';color:#6b7280;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:0;border-top:4px solid transparent}
+.bn i{font-style:normal;font-size:1.5rem;line-height:1.3}
+.bn button.on{color:var(--g);border-top-color:var(--g)}
 
-main{max-width:920px;margin:0 auto;padding:18px 14px 60px}
+/* الرئيسية */
+.hero{background:linear-gradient(135deg,#fff 50%,#fdebc2);border-radius:26px;padding:20px;margin:14px 0;box-shadow:0 6px 20px #0001;position:relative;overflow:hidden}
+.hero::after{content:"أ ب ت";position:absolute;left:12px;bottom:-14px;font:700 4.2rem 'Amiri',serif;color:var(--sun);opacity:.25}
+.hero h1{font-size:1.9rem}.hero p{margin:.2em 0;max-width:80%}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{display:grid;gap:2px;text-align:right;border:0;border-radius:26px;padding:16px;min-height:150px;color:#fff;cursor:pointer;box-shadow:0 8px 0 #0003;transition:transform .12s,box-shadow .12s;font-family:'Cairo'}
+.tile:active{transform:translateY(6px);box-shadow:0 2px 0 #0003}
+.tile span{width:58px;height:58px;border-radius:18px;background:#ffffff38;display:grid;place-items:center;font-size:2rem}
+.tile b{font:700 1.5rem 'Reem Kufi'}.tile small{font-size:.85rem;opacity:.92;line-height:1.4}
+.t1{background:linear-gradient(135deg,#0e7c66,#16a085)}.t2{background:linear-gradient(135deg,#f4a62a,#f59e0b);color:#3b2a00}
+.t3{background:linear-gradient(135deg,#ef6f5e,#f43f5e)}.t4{background:linear-gradient(135deg,#3b82f6,#2563eb)}
+.t5{background:linear-gradient(135deg,#8b5cf6,#7c3aed)}.t6{background:linear-gradient(135deg,#14b8a6,#0891b2)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center;margin-top:16px}
+.stats div{background:#fff;border-radius:18px;padding:10px 4px;box-shadow:0 3px 10px #0001}.stats b{display:block;font:700 1.6rem 'Reem Kufi';color:var(--g)}.stats small{font-size:.8rem}
 
-/* البطاقات: إطار مزدوج مثل البلاط */
-.hero,.det,.card{position:relative;background:var(--card);border:2px solid var(--gold);border-radius:22px;padding:20px;margin-bottom:18px;box-shadow:0 6px 0 #c9a22733,0 12px 24px #14213d1a}
-.hero::after,.det::after,.card::after{content:"";position:absolute;inset:6px;border:1px solid #c9a22766;border-radius:16px;pointer-events:none}
-.hero{background:linear-gradient(135deg,#fffaf0 55%,#f7e7b4);overflow:hidden}
-.hero::before{content:"ع";position:absolute;left:-10px;bottom:-50px;font:700 11rem 'Amiri',serif;color:var(--gold);opacity:.13;line-height:1}
-.hero h1{font-size:2rem}
+/* عام */
+.card{background:var(--card);border-radius:24px;padding:18px;margin:14px 0;box-shadow:0 5px 18px #0001}
+.card h3{color:var(--g)}
+.showc{text-align:center;background:linear-gradient(160deg,#fff,#e6f7f1)}
+.big{font:700 6.5rem 'Amiri',serif;line-height:1.3;text-align:center}
+.arabic{font-family:'Amiri',serif}
+.note{background:#fff3cf;border-right:5px solid var(--sun);border-radius:12px;padding:8px 14px;font-size:.92rem}
+.hint{color:#6b7280;margin:6px 0}
+.top{display:flex;justify-content:space-between;align-items:center}
+.back{background:none;border:0;color:var(--g);font:700 1.05rem 'Cairo';cursor:pointer;padding:8px 0}
+.btn,.btn2,.tab,.chip,.spk,.syl,.opt{font-family:'Cairo',sans-serif;border:0;border-radius:16px;cursor:pointer;transition:transform .12s,box-shadow .12s}
+.btn,.btn2{font-weight:700;font-size:1.05rem;padding:12px 20px;min-height:52px}
+.btn{background:var(--g);color:#fff;box-shadow:0 5px 0 var(--g2)}.btn2{background:var(--sun);color:#3b2a00;box-shadow:0 5px 0 var(--sun2)}
+.btn:active,.btn2:active{transform:translateY(4px);box-shadow:0 1px 0 #0003}
+.spk{background:#fff3cf;padding:6px 12px;min-height:44px;font-size:1.1rem}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}.c{justify-content:center}
+.tabs,.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:none}
+.tab,.chip{flex:none;background:#fff;border:2px solid var(--line);padding:8px 20px;font-weight:600;font-size:1rem;color:var(--ink)}
+.tab.on,.chip.on{background:var(--g);border-color:var(--g);color:#fff}
+.pn{display:flex;gap:12px;justify-content:space-between}
 
-/* شريط التقدم */
-.bar{height:20px;background:#fff;border:2px solid var(--night);border-radius:12px;overflow:hidden;box-shadow:inset 0 2px 4px #0002}
-.bar i{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--teal),var(--teal) 10px,#14998f 10px,#14998f 20px);transition:width .6s}
-
-/* الأزرار ثلاثية الأبعاد */
-.btn,.btn2,.opt,.tab,.spk,.syl{font:600 1.05rem 'Cairo',sans-serif;border:0;border-radius:16px;cursor:pointer;padding:12px 22px;min-height:54px;transition:transform .12s,box-shadow .12s}
-.btn{background:var(--teal);color:#fff;box-shadow:0 5px 0 var(--teal2)}
-.btn2{background:var(--gold2);color:var(--night);box-shadow:0 5px 0 #a8861a}
-.btn:active,.btn2:active,.spk:active{transform:translateY(4px);box-shadow:0 1px 0 #0003}
-.spk{background:var(--gold2);color:var(--night);min-height:46px;padding:6px 14px;box-shadow:0 3px 0 #a8861a}
-.syl{background:#fff;border:2px solid var(--gold);font:700 1.9rem 'Amiri',serif;margin:4px;color:var(--night);box-shadow:0 4px 0 #c9a22755}
-.acts,.tabs{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0}
-.tab{background:#fff;border:2px solid var(--night);color:var(--night);padding:8px 20px;min-height:46px;border-radius:999px}
-.tab.on{background:var(--night);color:var(--gold2)}
-
-/* الحروف كبلاط */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(78px,1fr));gap:12px}
-.cell{font:700 2.8rem 'Amiri',serif;color:var(--night);background:var(--card);border:2px solid var(--gold);border-radius:18px;min-height:88px;cursor:pointer;box-shadow:0 5px 0 #c9a22766,inset 0 0 0 5px #fffaf0,inset 0 0 0 6px #c9a22744;transition:transform .12s,background .2s}
-.cell:hover{background:#fff3c4}.cell:active{transform:translateY(4px)}
-.big{font:700 6rem 'Amiri',serif;line-height:1.3;text-align:center;color:var(--night)}
-.arabic{font-family:'Amiri','Noto Naskh Arabic',serif}
-
-/* المستويات كطريق */
-.lv{display:grid;gap:12px;position:relative}
-.lvc{display:flex;align-items:center;gap:14px;background:var(--card);border:2px solid #d6c9a4;border-radius:18px;padding:14px 16px;font:600 1.1rem 'Cairo',sans-serif;cursor:pointer;text-align:right;color:var(--ink);box-shadow:0 4px 0 #d6c9a4}
-.lvc.done{border-color:var(--ok);box-shadow:0 4px 0 #15803d55;background:#f1fbef}
-.lvc.lock{opacity:.6}
-.lvc b{flex:none;width:44px;height:44px;display:grid;place-items:center;background:var(--night);color:var(--gold2);font:700 1.2rem 'Reem Kufi';clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%)}
-.lvc.done b{background:var(--ok);color:#fff}
-
-.rows{display:grid;gap:10px}
-.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:2px solid #e6d9b0;border-radius:16px;padding:8px 16px}
-.row>b{width:52px;font:700 2.4rem 'Amiri',serif;color:var(--teal)}
-.f{display:inline-flex;flex-direction:column;align-items:center;min-width:72px;font:700 2.3rem 'Amiri',serif;line-height:1.5}
-.f small{font:600 .75rem 'Cairo';color:#7c6a2c}
-.forms{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.note{background:#fdf1c4;border-right:6px solid var(--gold);border-radius:12px;padding:10px 16px;font-size:.95rem}
-
+/* الحروف والكلمات */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));gap:12px}
+.cell{font:700 2.7rem 'Amiri',serif;background:#fff;border:3px solid var(--line);border-radius:20px;min-height:88px;cursor:pointer;color:var(--ink);box-shadow:0 5px 0 var(--line)}
+.cell:active,.wc:active{transform:translateY(4px)}
+.cell.seen,.wc.seen{border-color:var(--g);background:#e6f7f1;box-shadow:0 5px 0 #0e7c6655}
 .wg{display:grid;grid-template-columns:repeat(auto-fill,minmax(135px,1fr));gap:12px}
-.wc{font:700 1.7rem 'Amiri',serif;background:var(--card);border:2px solid var(--gold);border-radius:20px;padding:12px;cursor:pointer;color:var(--night);box-shadow:0 5px 0 #c9a22766}
-.wc span{display:block;font-size:2.6rem}.wc:active{transform:translateY(4px)}
+.wc{font:700 1.7rem 'Amiri',serif;background:#fff;border:3px solid var(--line);border-radius:22px;padding:12px;cursor:pointer;color:var(--ink);box-shadow:0 5px 0 var(--line)}
+.wc span{display:block;font-size:2.8rem}
+.ex{display:flex;align-items:center;justify-content:center;gap:14px;font-size:2rem}.ex span{font-size:3.4rem}
+.rows{display:grid;gap:10px}
+.row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;border:2px solid var(--line);border-radius:16px;padding:6px 14px}
+.row>b{width:50px;font:700 2.3rem 'Amiri';color:var(--g)}
+.syl{background:#e0f2fe;font:700 1.9rem 'Amiri',serif;padding:4px 16px;margin:3px}
+.f{display:inline-flex;flex-direction:column;align-items:center;min-width:70px;font:700 2.3rem 'Amiri',serif;line-height:1.5}
+.f small{font:600 .75rem 'Cairo';color:#6b7280}
+.forms{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
-/* الاختبارات */
-.qp{font:600 1.5rem 'Cairo';text-align:center;margin-bottom:8px}
+/* التمارين */
+.lv{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.xt{background:#fff;border:2px solid var(--line);border-radius:20px;padding:14px;text-align:right;cursor:pointer;font:600 1.05rem 'Cairo';color:var(--ink);box-shadow:0 5px 0 var(--line)}
+.xt span{display:block;font-size:2rem}.xt small{color:var(--sun2);letter-spacing:2px}.xt:active{transform:translateY(4px)}
+.bar{height:16px;background:#fff;border:2px solid var(--g);border-radius:10px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--g);transition:width .5s}
+.qp{font:600 1.5rem 'Cairo';text-align:center}
 .opts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
-.opt{background:#fff;border:2px solid var(--night);font:700 2.1rem 'Amiri',serif;color:var(--night);box-shadow:0 5px 0 var(--night)}
-.opt:active{transform:translateY(4px);box-shadow:0 1px 0 var(--night)}
-.opt.ok{background:#bbf7d0;border-color:var(--ok);box-shadow:0 5px 0 var(--ok)}
-.opt.bad{background:#fed7aa;border-color:var(--warm);box-shadow:0 5px 0 var(--warm)}
-.opt:disabled{opacity:.65;cursor:default}
-.fb{border-radius:14px;padding:12px;margin:12px 0;font-size:1.15rem;text-align:center}
-.fb.ok{background:#dcfce7}.fb.no{background:#ffedd5}
-
-/* لوحة الكتابة كورقة تمرين */
-.pad{position:relative;height:270px;border:3px solid var(--night);border-radius:18px;overflow:hidden;touch-action:none;background:
-  linear-gradient(transparent 0 calc(50% - 1px),#c9a22788 calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),#fffdf6}
-.pad svg,.pad canvas{position:absolute;inset:0;width:100%;height:100%}
-.pad canvas{touch-action:none;cursor:crosshair}
-.model{font:700 3.2rem 'Amiri',serif;text-align:center;color:var(--teal)}
-select{font:600 1.1rem 'Cairo';padding:12px;border-radius:14px;width:100%;margin:6px 0;border:2px solid var(--night);background:#fff}
-
-#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(130px);background:var(--night);color:var(--gold2);border:2px solid var(--gold);padding:12px 24px;border-radius:999px;transition:transform .3s;z-index:9;max-width:90%;text-align:center}
+.opt{background:#fff;border:3px solid var(--g);font:700 2.1rem 'Amiri',serif;min-height:70px;color:var(--g2);box-shadow:0 5px 0 var(--g)}
+.opt:active{transform:translateY(4px)}
+.opt.ok{background:#bbf7d0}.opt.bad{background:#fed7aa;border-color:var(--coral);box-shadow:0 5px 0 var(--coral)}.opt:disabled{opacity:.7}
+.fb{border-radius:14px;padding:12px;margin:10px 0;text-align:center;font-size:1.1rem}.fb.ok{background:#dcfce7}.fb.no{background:#ffedd5}
+.model{font:700 3.2rem 'Amiri',serif;text-align:center;color:var(--g)}
+.pad{position:relative;height:270px;border:3px solid var(--g);border-radius:22px;overflow:hidden;touch-action:none;background:linear-gradient(transparent calc(50% - 1px),#f4a62a88 calc(50% - 1px) calc(50% + 1px),transparent calc(50% + 1px)),#fffdf7}
+.pad svg,.pad canvas{position:absolute;inset:0;width:100%;height:100%}.pad canvas{touch-action:none;cursor:crosshair}
+select{font:600 1.05rem 'Cairo';padding:12px;border-radius:14px;width:100%;margin:6px 0;border:2px solid var(--line);background:#fff}
+#toast{position:fixed;bottom:95px;left:50%;transform:translateX(-50%) translateY(150px);background:var(--ink);color:#fff;padding:12px 24px;border-radius:999px;transition:transform .3s;z-index:9;max-width:90%;text-align:center}
 #toast.show{transform:translateX(-50%) translateY(0)}
-
-@media(max-width:480px){body{font-size:18px}.big{font-size:4.8rem}.opt{font-size:1.8rem}.hero h1{font-size:1.6rem}}
+@media(max-width:480px){body{font-size:18px}.big{font-size:5rem}.opt{font-size:1.8rem}.hero p{max-width:100%}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
