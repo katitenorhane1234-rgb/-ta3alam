@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#14213d">
+<meta name="theme-color" content="#0e7c66">
 <title>T3alam | تعلّم</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,21 +12,18 @@
 </head>
 <body>
 <header>
-  <div class="brand">
-    <i class="logo">ت</i>
-    <div><b>تعلّم</b><small>T3alam · رحلتك من الحرف الأول</small></div>
-  </div>
-  <nav>
-    <button data-go="home">الرئيسية</button>
-    <button data-go="letters">الحروف</button>
-    <button data-go="words">الكلمات</button>
-    <button data-go="write">الكتابة</button>
-    <button data-go="num">الأرقام والحساب</button>
-    <button data-go="ex">التمارين</button>
-    <button data-go="prog">تقدمي</button>
-  </nav>
+  <div class="brand"><i class="logo">ت</i><div><b>تعلّم</b><small>T3alam</small></div></div>
+  <button class="pbtn" data-go="prog" aria-label="تقدمي">📊 تقدمي</button>
 </header>
 <main id="view"></main>
+<nav class="bn">
+  <button data-go="home"><i>🏠</i>الرئيسية</button>
+  <button data-go="letters"><i>🔤</i>الحروف</button>
+  <button data-go="words"><i>🖼️</i>الكلمات</button>
+  <button data-go="write"><i>✍️</i>الكتابة</button>
+  <button data-go="num"><i>🔢</i>الأرقام</button>
+  <button data-go="ex"><i>🎯</i>تمارين</button>
+</nav>
 <div id="toast" role="status"></div>
 <script src="app.js"></script>
 </body>
